@@ -20,20 +20,32 @@ public enum PuyoType
 public class PuyoController : MonoBehaviour
 {
     static readonly Color[] color_table = new Color[] {
-       Color.black,
+        Color.black,
 
-       Color.green,
-       Color.red,
-       Color.yellow,
-       Color.blue,
-       Color.magenta,
-       Color.cyan,
+        Color.green,
+        Color.red,
+        Color.yellow,
+        Color.blue,
+        Color.magenta,
+        Color.cyan,
 
-       Color.gray,
-   };
+        Color.gray,
+    };
 
-    [SerializeField] Renderer my_renderer = default!;
+    [SerializeField] Renderer my_renderer = default!;// 自分自身のマテリアルを登録しておく(GetComponentをなくす)
     PuyoType _type = PuyoType.Invalid;
+
+    // Start is called before the first frame update
+    //    void Start()
+    //    {
+    //        // 今回は使わない
+    //    }
+
+    // Update is called once per frame
+    //    void Update()
+    //    {
+    //        // 今回は使わない
+    //    }
 
     public void SetPuyoType(PuyoType type)
     {
@@ -48,6 +60,6 @@ public class PuyoController : MonoBehaviour
 
     public void SetPos(Vector3 pos)
     {
-        this.transform.position = pos;
+        this.transform.localPosition = pos;
     }
 }
